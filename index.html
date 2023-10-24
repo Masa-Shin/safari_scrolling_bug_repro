@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Safari scrolling bug repro</title>
+</head>
+<body>
+  <div class="parent">
+    <div class="child">
+      1. You can scroll this element(from red to violet).<br>
+      2. Scroll up and down on the gray element below.<br>
+      3. Now you can't scroll this element if you are using iOS Safari.
+    </div>
+    <div class="position-absolute">
+      This is the gray element.
+    </div>
+  </div>
+</body>
+</html>
+
+<style>
+
+  .parent {
+    position: relative;
+    height: 80dvh;
+    width: 100%;
+    overflow: scroll;
+  }
+
+  .child {
+    height: 200dvh;
+    width: 100%;
+    background: linear-gradient(to bottom, red, orange, yellow, green, blue, indigo, violet);
+    overflow-y: scroll;
+  }
+
+  .position-absolute {
+    position: fixed;
+    bottom: 0;
+    height: 160px;
+    width: 100%;
+    background-color: gray;
+  }
+</style>
